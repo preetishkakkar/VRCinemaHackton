@@ -2,12 +2,10 @@
 using System.Collections;
 using UnityStandardAssets.ImageEffects;
 
-public class EyeSelect : ButtonFunction {
-
+public class EffectToggle : ButtonFunction {
 
 	public override void Function(){
-		Debug.Log ("Eye Select Called");
-
+		Debug.Log ("Effect Toggle Called");
 		var leftCamObj = GameObject.Find("Left Eye").gameObject;
 		var leftCam = leftCamObj.GetComponent<Camera>();
 		var leftBlur = (BlurOptimized)leftCam.GetComponent(typeof(BlurOptimized));
@@ -20,16 +18,16 @@ public class EyeSelect : ButtonFunction {
 
 		if (leftBlur.enabled) {
 			leftBlur.enabled = false;
-			rightBlur.enabled = true;
+			rightContrast.enabled = true;
 		} else if (rightBlur.enabled) {
 			rightBlur.enabled = false;
-			leftBlur.enabled = true;
+			leftContrast.enabled = true;
 		} else if (leftContrast.enabled) {
 			leftContrast.enabled = false;
-			rightContrast.enabled = true;
+			rightBlur.enabled = true;
 		} else if (rightContrast.enabled) {
 			rightContrast.enabled = false;
-			leftContrast.enabled = true;
+			leftBlur.enabled = true;
 		}
 	}
 }
