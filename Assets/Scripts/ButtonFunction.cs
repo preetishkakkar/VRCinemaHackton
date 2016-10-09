@@ -30,7 +30,8 @@ public class ButtonFunction : MonoBehaviour {
 			}
 		}
 	}
-	public void Function(){
+	public virtual void Function(){
+		Debug.Log ("Eye Select Called");
 		if (PreviousVideo) {
 			Controller.PreviousVideo();
 		}
